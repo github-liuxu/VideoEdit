@@ -57,7 +57,6 @@
         
         NSDictionary *writerAttr = @{AVVideoCodecKey:AVVideoCodecTypeH264,AVVideoWidthKey:@(videoTrack.naturalSize.width),AVVideoHeightKey:@(videoTrack.naturalSize.height)};
         self.writerInput = [[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo outputSettings:writerAttr];
-//        self.writerInput.expectsMediaDataInRealTime = YES;
         NSDictionary*sourcePixelBufferAttributesDictionary =[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange],kCVPixelBufferPixelFormatTypeKey,nil];
         self.pixelBufferAdaptor = [[AVAssetWriterInputPixelBufferAdaptor alloc] initWithAssetWriterInput:self.writerInput sourcePixelBufferAttributes:sourcePixelBufferAttributesDictionary];
         if ([self.writer canAddInput:self.writerInput]) {

@@ -33,7 +33,7 @@
 		0CD4458C272D264800CBE33F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CD4458F272D264800CBE33F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CD44591272D264800CBE33F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CD44597272D266400CBE33F /* DF.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DF.entitlements; sourceTree = "<group>"; };
+		0CD44597272D266400CBE33F /* VideoEdit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VideoEdit.entitlements; sourceTree = "<group>"; };
 		0CD44598272D26DF00CBE33F /* Convertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertor.swift; sourceTree = "<group>"; };
 		0CD4459A272D2AAB00CBE33F /* LDXFileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDXFileReader.swift; sourceTree = "<group>"; };
 		58C7B2752767559B00C08304 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				58C7B2752767559B00C08304 /* test.mp4 */,
-				0CD44597272D266400CBE33F /* DF.entitlements */,
+				0CD44597272D266400CBE33F /* VideoEdit.entitlements */,
 				0CD44583272D264600CBE33F /* AppDelegate.swift */,
 				0CD44585272D264600CBE33F /* SceneDelegate.swift */,
 				0CD44587272D264600CBE33F /* ViewController.swift */,
@@ -315,7 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = VideoEdit/DF.entitlements;
+				CODE_SIGN_ENTITLEMENTS = VideoEdit/VideoEdit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -349,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = VideoEdit/DF.entitlements;
+				CODE_SIGN_ENTITLEMENTS = VideoEdit/VideoEdit.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

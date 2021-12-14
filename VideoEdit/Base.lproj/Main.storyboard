@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,12 +12,12 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DF" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VideoEdit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrA-E9-KUX" customClass="Preview" customModule="DF" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrA-E9-KUX" customClass="Preview" customModule="VideoEdit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hXh-xr-4ib">
@@ -37,6 +38,20 @@
                                             <action selector="daofangClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hTb-kg-Pq1"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-pt-3cp">
+                                        <rect key="frame" x="187" y="825" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Crq-qD-jv7"/>
+                                            <constraint firstAttribute="height" constant="40" id="gYV-A4-Uep"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="playClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UZb-qt-Stp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -46,8 +61,10 @@
                                     <constraint firstAttribute="trailing" secondItem="hXh-xr-4ib" secondAttribute="trailing" constant="16" id="3Me-nh-gZ1"/>
                                     <constraint firstItem="hXh-xr-4ib" firstAttribute="leading" secondItem="OrA-E9-KUX" secondAttribute="leading" constant="16" id="CgQ-lt-vdI"/>
                                     <constraint firstItem="st1-zQ-Uot" firstAttribute="top" secondItem="OrA-E9-KUX" secondAttribute="top" constant="52" id="HA8-Bk-IOh"/>
+                                    <constraint firstItem="d3v-pt-3cp" firstAttribute="top" secondItem="hXh-xr-4ib" secondAttribute="bottom" constant="9" id="YIs-QI-5pW"/>
                                     <constraint firstAttribute="bottom" secondItem="hXh-xr-4ib" secondAttribute="bottom" constant="80" id="l9X-A2-iEw"/>
                                     <constraint firstAttribute="trailing" secondItem="st1-zQ-Uot" secondAttribute="trailing" constant="16" id="mhB-bD-cKL"/>
+                                    <constraint firstItem="d3v-pt-3cp" firstAttribute="centerX" secondItem="OrA-E9-KUX" secondAttribute="centerX" id="p3j-ds-PYT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,6 +78,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playButton" destination="d3v-pt-3cp" id="nSe-3B-uq0"/>
                         <outlet property="preview" destination="OrA-E9-KUX" id="Zbl-EE-hGS"/>
                     </connections>
                 </viewController>
@@ -70,6 +88,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="play" catalog="system" width="120" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

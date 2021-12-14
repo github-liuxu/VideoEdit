@@ -11,13 +11,17 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var playButton: UIButton!
     var fileReader: LDXFileReader!
     var timer: Timer!
     @IBOutlet weak var preview: Preview!
     var duration: Int64 = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.playButton.setImage(UIImage(systemName: "play"), for: .normal)
+        self.playButton.setImage(UIImage(systemName: "pause"), for: .selected)
         let filePath = Bundle.main.path(forResource: "test", ofType: "mp4")
         let asset = AVAsset(url: URL.init(fileURLWithPath: filePath!))
         fileReader = LDXFileReader(asset: asset)
@@ -40,6 +44,9 @@ class ViewController: UIViewController {
         preview.enqueue(sampleBuffer!)
     }
 
+    @IBAction func playClick(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
     // Convert CIImage to CGImage
     func convert(cmage:CIImage) -> UIImage
     {
@@ -53,10 +60,10 @@ class ViewController: UIViewController {
     var con: Convert!
     @IBAction func daofangClick(_ sender: Any) {
         let filePath = Bundle.main.path(forResource: "test", ofType: "mp4")
-//        convert = Convertor(filePath: filePath!)
-//        convert.convert()
-        con = Convert(filePath!)
-        con.convert()
+        convert = Convertor(filePath: filePath!)
+        convert.convert()
+//        con = Convert(filePath!)
+//        con.convert()
     }
 }
 
