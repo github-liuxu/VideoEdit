@@ -126,17 +126,14 @@ class Convertor {
                         }
                         let filePath = localPath + "/" + String(fileName)
                         let data:Data = try! Data(contentsOf: URL(fileURLWithPath: filePath))
-//                        let pp = (data as NSData).bytes
-                        let unsafePointer = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
-                        unsafePointer.initialize(repeating: 0, count: size) // is this necessary?
-                        data.copyBytes(to: unsafePointer, count: size)
-                        let unsafeRawPointer = unsafePointer.deinitialize(count: size)
-                        
                         var pixelBuffer: CVPixelBuffer!
                         CVPixelBufferCreate(kCFAllocatorDefault, width, height, kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange, nil, &pixelBuffer)
                         CVPixelBufferLockBaseAddress(pixelBuffer, .readOnly)
                         let pxDataDts = CVPixelBufferGetBaseAddress(pixelBuffer)
-                        memcpy(pxDataDts!, unsafeRawPointer, size)
+                                                
+                        let ptr = unsafeBitCast(pxDataDts, to: UnsafeMutablePointer<UInt8>.self)
+                        data.copyBytes(to: ptr, count: size)
+//                        memcpy(pxDataDts!, ptr, size)
                         CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
                         self?.pixelBufferAdepter.append(pixelBuffer!, withPresentationTime: CMTimeMake(value: Int64(lastFileName - fileName) , timescale: 1000000))
                         try? self?.fileManager.removeItem(atPath: filePath)
